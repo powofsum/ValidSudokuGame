@@ -1,12 +1,12 @@
 
 import java.util.ArrayList;
+public class Validation implements IModesValidate {
 
-public class Validation {
-    
+    @Override
+    public ArrayList<Integer>checkUnit(int[] arr)  {//غيرت ال نوع ال return
 
-    public ArrayList<Integer>checkUnit(int[] arr) {
         int[] frequency = new int[10]; // frequency array
-              // we won't use frequency[0]
+        // we won't use frequency[0]
         boolean flag = false;
         ArrayList<Integer>duplicate=new ArrayList<>();
 
@@ -30,9 +30,9 @@ public class Validation {
             if (frequency[i] > 1) {
                 duplicate.add(i);
                 flag = true;
-            } 
+            }
         }
 
-      return duplicate;  
+        return duplicate;
     }
 }
