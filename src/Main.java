@@ -30,7 +30,7 @@ public class Main {
             }
 
         }
-        else if (mode==0)
+        else if (mode==0) //try
         {
             System.out.println("mode0");
             var mode0=new Mode0();
