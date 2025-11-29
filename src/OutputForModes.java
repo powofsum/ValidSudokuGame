@@ -6,7 +6,7 @@ public  class OutputForModes  {
         for(String s:Message){
             System.out.println(s);
         }
-//System.out.println("-------------------------\n");
+//        System.out.println("-------------------------\n");
 
     }
 }

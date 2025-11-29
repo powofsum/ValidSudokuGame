@@ -1,7 +1,7 @@
 
 import javax.swing.*;
 import java.util.ArrayList;
-public class Mode0 {
+public class Mode0 implements ISwitchModes  {
 
     // public static void main(String[] args)  {
 
@@ -12,7 +12,13 @@ public class Mode0 {
     int[][] grid = gridLoader.loadFile(path);
     boolean anyError = false;
     ArrayList<String> Message= new ArrayList<>();
-    public Mode0(){
+//    public Mode0(){
+//        checkRows();
+//        checkColumns();
+//        checkBoxes();
+//    }
+    @Override
+    public void print(){
         checkRows();
         checkColumns();
         checkBoxes();
@@ -35,10 +41,12 @@ public class Mode0 {
                     String s="ROW " + i + ", #" + d + ", " + FormatArray.formatArray(row);
                     Message.add(s);
                 }
-                Message.add("-------------------------\n");
+
             }
 
         }
+        if(anyError)
+            Message.add("-------------------------\n");
     }
 
 
@@ -56,10 +64,11 @@ public class Mode0 {
                     String s="COL " + i + ", #" + d + ", " + FormatArray.formatArray(col);
                     Message.add(s);
                 }
-                Message.add("-------------------------\n");
             }
 
         }
+        if(anyError)
+            Message.add("-------------------------\n");
     }
 
     // ----- Boxes -----
@@ -76,17 +85,18 @@ public class Mode0 {
                     String s="BOX" + i + ", #" + d + ", " + FormatArray.formatArray(box);
                     Message.add(s);
                 }
-                Message.add("-------------------------\n");
             }
 
         }
+        if(anyError)
+        Message.add("-------------------------\n");
     }
 
-
+@Override
     public boolean foundAnyError() {
         return anyError;
     }
-
+@Override
     public ArrayList<String> getMessage() {
         return Message;
     }

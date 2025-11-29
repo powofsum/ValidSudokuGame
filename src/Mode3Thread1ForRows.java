@@ -24,7 +24,7 @@ public class Mode3Thread1ForRows implements Runnable {
                     String s="ROW " + i + ", #" + d + ", " + FormatArray.formatArray(row);
                     Message.add(s);
                 }
-                Message.add("-------------------------\n");
+               // Message.add("-------------------------\n");
 
             }
 
