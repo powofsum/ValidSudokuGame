@@ -25,6 +25,8 @@ public class Mode3Thread3ForBoxes implements Runnable {
                     String s="BOX " + i + ", #" + d + ", " + FormatArray.formatArray(box);
                     Message.add(s);
                 }
+                Message.add("-------------------------\n");
+
             }
 
         }
