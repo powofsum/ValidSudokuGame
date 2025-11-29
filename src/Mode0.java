@@ -1,19 +1,28 @@
-import java.util.ArrayList;
 
+import javax.swing.*;
+import java.util.ArrayList;
 public class Mode0 {
 
-    public static void main(String[] args) throws Exception {
+    // public static void main(String[] args)  {
 
-        String path = "C:\\Users\\Yasser Elshaer\\Desktop\\test.csv";
+    String path = "test.csv";
 
-        SudokuGrid gridLoader = new SudokuGrid(path);
-        Validation validation = new Validation();
-        int[][] grid = gridLoader.loadFile(path);
+    SudokuGrid gridLoader = new SudokuGrid(path);
+    Validation validation = new Validation();
+    int[][] grid = gridLoader.loadFile(path);
+    boolean anyError = false;
+    ArrayList<String> Message= new ArrayList<>();
+    public Mode0(){
+        checkRows();
+        checkColumns();
+        checkBoxes();
+    }
 
-        boolean anyError = false;
 
-        // ----- Rows -----
-        System.out.println("ROWS");
+    // ----- Rows -----
+    // System.out.println("ROWS");
+
+    public void checkRows(){
         for (int i = 1; i <= 9; i++) {
 
             int[] row = gridLoader.getRow(grid, i);
@@ -23,13 +32,19 @@ public class Mode0 {
                 anyError = true;
 
                 for (int d : duplicate) {
-                    System.out.println("ROW " + i + ", #" + d + ", " + formatArray(row));
+                    String s="ROW " + i + ", #" + d + ", " + FormatArray.formatArray(row);
+                    Message.add(s);
+                }
+                Message.add("-------------------------\n");
             }
-        }}
-        System.out.println("-------------------------\n");
 
-        // ----- Columns -----
-        System.out.println("COLs");
+        }
+    }
+
+
+    // ----- Columns -----
+    // System.out.println("COLs");
+    public void checkColumns(){
         for (int i = 1; i <= 9; i++) {
             int[] col = gridLoader.getColumn(grid, i);
             ArrayList<Integer> duplicate = validation.checkUnit(col);
@@ -38,13 +53,18 @@ public class Mode0 {
                 anyError = true;
 
                 for (int d : duplicate) {
-                    System.out.println("COL " + i + ", #" + d + ", " + formatArray(col));
+                    String s="COL " + i + ", #" + d + ", " + FormatArray.formatArray(col);
+                    Message.add(s);
+                }
+                Message.add("-------------------------\n");
             }
-        }}
-        System.out.println("-------------------------\n");
 
-        // ----- Boxes -----
-        System.out.println("BOXs");
+        }
+    }
+
+    // ----- Boxes -----
+    //System.out.println("BOXs");
+    public void checkBoxes(){
         for (int i = 1; i <= 9; i++) {
             int[] box = gridLoader.getBox(grid, i);
             ArrayList<Integer> duplicate = validation.checkUnit(box);
@@ -53,26 +73,21 @@ public class Mode0 {
                 anyError = true;
 
                 for (int d : duplicate) {
-                    System.out.println("BOX " + i + ", #" + d + ", " + formatArray(box));
+                    String s="BOX" + i + ", #" + d + ", " + FormatArray.formatArray(box);
+                    Message.add(s);
+                }
+                Message.add("-------------------------\n");
             }
-        }}
-        System.out.println("-------------------------\n");
 
-        // ----- Final Result -----
-        if (!anyError)
-            System.out.println("Sudoku Solution is VALID ");
-        else
-            System.out.println("Sudoku Solution is INVALID ");
+        }
     }
 
-    private static String formatArray(int[] arr) {
-        String s = "[";
-        
-        for (int i = 0; i < arr.length; i++) {
-            s+=arr[i];
-            if (i <arr.length - 1) s+=", ";
-        }
-        
-        return s+"]";
+
+    public boolean foundAnyError() {
+        return anyError;
+    }
+
+    public ArrayList<String> getMessage() {
+        return Message;
     }
 }
