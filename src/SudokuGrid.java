@@ -33,7 +33,7 @@ public class SudokuGrid {
             String parts[] = line.split(",");
 
             for (int c = 0; c < 9; c++) {
-                Grid[r][c] = Integer.parseInt(parts[c]);
+                Grid[r][c] = Integer.parseInt(parts[c].trim()); //added trim() to handle is any space between numbers in File
             }
         }
 
