@@ -28,6 +28,8 @@ public class Mode3Thread2ForColumns implements Runnable{
                     String s="COl " + i + ", #" + d + ", " + FormatArray.formatArray(col);
                     Message.add(s);
                 }
+                Message.add("-------------------------\n");
+
             }
         }
 
