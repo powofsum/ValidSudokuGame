@@ -1,12 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author Malak Bahy
- */
 import java.util.ArrayList;
 public class Mode27ForColumns implements Runnable{
 
@@ -18,10 +9,10 @@ public class Mode27ForColumns implements Runnable{
     private boolean anyError = false;
     ArrayList<String> Message = new ArrayList<>();
 
-    private final int colNumber; // 1 → 9
+    private final int colNo; 
 
-    public Mode27ForColumns(int colNumber) {
-        this.colNumber = colNumber;
+    public Mode27ForColumns(int colNo) {
+        this.colNo = colNo;
     }
 
     @Override
@@ -31,14 +22,14 @@ public class Mode27ForColumns implements Runnable{
 
     private void checkColumn() {
 
-        int[] col = gridLoader.getColumn(grid, colNumber);
+        int[] col = gridLoader.getColumn(grid, colNo);
         ArrayList<Integer> duplicates = validate.checkUnit(col);
 
         if (!duplicates.isEmpty()) {
             anyError = true;
 
             for (int d : duplicates) {
-                String s = "COL " + colNumber + ", #" + d + ", " + FormatArray.formatArray(col);
+                String s = "COL " + colNo + ", #" + d + ", " + FormatArray.formatArray(col);
                 Message.add(s);
             }
 
@@ -49,6 +40,11 @@ public class Mode27ForColumns implements Runnable{
     public boolean foundAnyError() {
         return anyError;
     }
+
+    public ArrayList<String> getMessage() {
+        return Message;
+    }
+}
 
     public ArrayList<String> getMessage() {
         return Message;
