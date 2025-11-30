@@ -1,13 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author Malak Bahy
- */
- import java.util.ArrayList;
+import java.util.ArrayList;
 public class Mode27ForRows implements Runnable{
 
     IModesValidate validate = new Validation();
@@ -18,10 +9,10 @@ public class Mode27ForRows implements Runnable{
     private boolean anyError = false;
     ArrayList<String> Message = new ArrayList<>();
 
-    private final int rowNumber; 
+    private final int rowNo; 
 
-    public Mode27ForRows (int rowNumber) {
-        this.rowNumber = rowNumber;
+    public Mode27ForRows (int rowNo) {
+        this.rowNo = rowNo;
     }
 
     @Override
@@ -31,14 +22,14 @@ public class Mode27ForRows implements Runnable{
 
     private void checkRow() {
 
-        int[] row = gridLoader.getRow(grid, rowNumber);
+        int[] row = gridLoader.getRow(grid, rowNo);
         ArrayList<Integer> duplicates = validate.checkUnit(row);
 
         if (!duplicates.isEmpty()) {
             anyError = true;
 
             for (int d : duplicates) {
-                String s = "ROW " + rowNumber + ", #" + d + ", " + FormatArray.formatArray(row);
+                String s = "ROW " + rowNo + ", #" + d + ", " + FormatArray.formatArray(row);
                 Message.add(s);
             }
 
@@ -49,6 +40,11 @@ public class Mode27ForRows implements Runnable{
     public boolean foundAnyError() {
         return anyError;
     }
+
+    public ArrayList<String> getMessage() {
+        return Message;
+    }
+} 
 
     public ArrayList<String> getMessage() {
         return Message;
