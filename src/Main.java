@@ -157,10 +157,10 @@ public class Main {
 //            foundMode=true;
             chooseMode = new Mode3();
         }
-        // else if (mode ==27) {            <-------- UNCOMMENT THOSE 3 LINES WHEN YOU ARE DONE
-        // chooseMode = new Mode27()
-        // };
-
+        else if (mode ==27) {            //<-------- UNCOMMENT THOSE 3 LINES WHEN YOU ARE DONE
+         chooseMode = new Mode27();
+         }
+        
          if(chooseMode!=null)
              chooseMode.print();
          else {
