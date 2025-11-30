@@ -18,9 +18,9 @@ public class Mode3 implements ISwitchModes{
         t2.join();
         t3.join();
         allMessages.addAll(m1.getMessage());
-        //allMessages.add("-------------------------\n");
+        allMessages.add("-------------------------\n");
         allMessages.addAll(m2.getMessage());
-        //allMessages.add("-------------------------\n");
+        allMessages.add("-------------------------\n");
         allMessages.addAll(m3.getMessage());
         anyError = m1.foundAnyError() || m2.foundAnyError() || m3.foundAnyError();
 
