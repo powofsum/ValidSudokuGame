@@ -25,16 +25,6 @@ public class Mode3 implements ISwitchModes{
         anyError = m1.foundAnyError() || m2.foundAnyError() || m3.foundAnyError();
 
 
-//        if (!m1.foundAnyError() && !m2.foundAnyError() && !m3.foundAnyError()) {
-//
-//            System.out.println("Sudoku Solution is VALID ");
-//        } else {
-//            OutputForModes.outputMessage(m1.getMessage());
-//            OutputForModes.outputMessage(m2.getMessage());
-//            OutputForModes.outputMessage(m3.getMessage());
-//            System.out.println("Sudoku Solution is INVALID ");
-//        }
-
     }
     @Override
     public boolean foundAnyError() {

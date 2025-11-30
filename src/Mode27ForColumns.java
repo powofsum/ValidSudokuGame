@@ -2,14 +2,14 @@ import java.util.ArrayList;
 public class Mode27ForColumns implements Runnable{
 
     IModesValidate validate = new Validation();
-    private final String path = "C:/Users/Malak Bahy/Documents/NetBeansProjects/ValidSudokuGame-main/src/test.csv";
+    private final String path = "test.csv";
     SudokuGrid gridLoader = new SudokuGrid(path);
     int[][] grid = gridLoader.loadFile(path);
 
     private boolean anyError = false;
     ArrayList<String> Message = new ArrayList<>();
 
-    private final int colNo; 
+    private final int colNo;
 
     public Mode27ForColumns(int colNo) {
         this.colNo = colNo;
@@ -33,7 +33,7 @@ public class Mode27ForColumns implements Runnable{
                 Message.add(s);
             }
 
-            Message.add("-------------------------\n");
+//            Message.add("-------------------------\n");
         }
     }
 
@@ -46,7 +46,4 @@ public class Mode27ForColumns implements Runnable{
     }
 }
 
-    public ArrayList<String> getMessage() {
-        return Message;
-    }
-}
+

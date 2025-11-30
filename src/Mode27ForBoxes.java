@@ -2,7 +2,7 @@ import java.util.ArrayList;
 public class Mode27ForBoxes implements Runnable{
     
     IModesValidate validate = new Validation();
-    private final String path = "C:/Users/Malak Bahy/Documents/NetBeansProjects/ValidSudokuGame-main/src/test.csv";
+    private final String path = "test.csv";
     SudokuGrid gridLoader = new SudokuGrid(path);
     int[][] grid = gridLoader.loadFile(path);
 
@@ -33,7 +33,7 @@ public class Mode27ForBoxes implements Runnable{
                 Message.add(s);
             }
 
-            Message.add("-------------------------\n");
+//            Message.add("-------------------------\n");
         }
     }
 
