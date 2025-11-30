@@ -1,12 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author Malak Bahy
- */
 import java.util.ArrayList;
 public class Mode27ForBoxes implements Runnable{
     
@@ -18,10 +9,10 @@ public class Mode27ForBoxes implements Runnable{
     private boolean anyError = false;
     ArrayList<String> Message = new ArrayList<>();
 
-    private final int boxNumber; // 1 → 9
+    private final int boxNo; 
 
-    public Mode27ForBoxes(int boxNumber) {
-        this.boxNumber = boxNumber;
+    public Mode27ForBoxes(int boxNo) {
+        this.boxNo = boxNo;
     }
 
     @Override
@@ -31,14 +22,14 @@ public class Mode27ForBoxes implements Runnable{
 
     private void checkBox() {
 
-        int[] box = gridLoader.getBox(grid, boxNumber);
+        int[] box = gridLoader.getBox(grid, boxNo);
         ArrayList<Integer> duplicates = validate.checkUnit(box);
 
         if (!duplicates.isEmpty()) {
             anyError = true;
 
             for (int d : duplicates) {
-                String s = "BOX " + boxNumber + ", #" + d + ", " + FormatArray.formatArray(box);
+                String s = "BOX " + boxNo + ", #" + d + ", " + FormatArray.formatArray(box);
                 Message.add(s);
             }
 
