@@ -9,7 +9,13 @@ public class Main {
         ISwitchModes chooseMode=null;
 
         System.out.println("Enter mode (0,3,27):");
-        int mode = scanner.nextInt();
+        int mode = -1;
+        try{
+               mode= scanner.nextInt();}
+        catch (Exception e ){
+            System.out.println("Invalid mode");
+            exit(1);
+        }
 
         if (mode == 0) {
 //            foundMode=true;
